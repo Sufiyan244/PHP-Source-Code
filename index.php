@@ -1,3 +1,11 @@
+
+<?php 
+
+include("config.php");
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +25,11 @@
     // $text = "Batch 2025";
     
     // echo $text;
+    // echo $number;
+    // echo "<br>";
+    // echo $password;
+    // echo "<br>";
+    
     
     // $fullname = "Azaan Ajmal Roghani";
     // $email = "roghani@gmail.com";
@@ -28,11 +41,6 @@
     // echo "<br>";
     // echo $email;
     // echo "<br>";
-    // echo $number;
-    // echo "<br>";
-    // echo $password;
-    // echo "<br>";
-    
 
     // $value1 = 150;
     // $value2 = 50;
