@@ -83,10 +83,10 @@ include("config.php");
             echo "<script>
     
             alert('Form has been Submitted Successfully');
+            window.location.href = './dashboard.php'
     
             </script>";
-        }
-        else{
+        } else {
             echo "Error" . mysqli_error($connection);
         }
     }
