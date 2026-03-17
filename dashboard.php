@@ -42,7 +42,6 @@ include("config.php");
         th,
         td {
             padding: 12px 15px;
-            /* text-align: center; */
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
@@ -75,7 +74,15 @@ include("config.php");
 
         .btn:hover {
             opacity: 0.8;
+            
         }
+
+        /* .alignment{ */
+            /* display: inline-flex;
+            justify-content: center;
+            align-items: center; */
+            /* padding: 10px 45%;
+        } */
     </style>
 </head>
 
@@ -128,11 +135,18 @@ include("config.php");
                 }
             
             
+                
             
             ?>
 
         </tbody>
     </table>
+
+
+    <div style=" display: flex; justify-content: center;">
+    <a class='btn edit-btn' style="text-decoration: none;" href = "" >Update</a>
+
+    </div>
 </body>
 
 </html>

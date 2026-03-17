@@ -83,7 +83,7 @@ include("config.php");
             echo "<script>
     
             alert('Form has been Submitted Successfully');
-            window.location.href = './dashboard.php'
+            window.location.href = './adminlogin.php'
     
             </script>";
         } else {
