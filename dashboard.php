@@ -125,8 +125,8 @@ include("config.php");
                     <td>".$row['email']."</td>
                     <td>".$row['password']."</td>
                     <td>
-                        <button class='btn edit-btn'>Update</button>
-                        <button class='btn delete-btn'>Delete</button>
+                        <a href='./update.php?id={$row['id']}' class='btn edit-btn'>Update</a>
+                        <a href='' class='btn delete-btn'>Delete</a>
                     </td>
                 </tr>";
 
@@ -144,7 +144,7 @@ include("config.php");
 
 
     <div style=" display: flex; justify-content: center;">
-    <a class='btn edit-btn' style="text-decoration: none;" href = "" >Update</a>
+    <a class='btn edit-btn' style="text-decoration: none;" href = "./index.php" >Go Back</a>
 
     </div>
 </body>
