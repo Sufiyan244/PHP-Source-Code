@@ -19,81 +19,48 @@ include("config.php");
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<?php
 
-    <?php
+$id = $_GET['id'];
+echo $id;
 
-    // $text = "Batch 2025";
+$sql = "select * from `register` . `users` where id = $id";
+$result = mysqli_query($connection, $sql);
+$row = mysqli_fetch_assoc($result);
 
-    // echo $text;
-    // echo $number;
-    // echo "<br>";
-    // echo $password;
-    // echo "<br>";
+$fullname = $row['fullname'];
+$email = $row['email'];
+$password = $row['password'];
 
+if (isset($_POST['submit'])) {
 
-    // $fullname = "Azaan Ajmal Roghani";
-    // $email = "roghani@gmail.com";
-    // $number = "123456789";
-    // $password = "Roghani@123";
+    $fullname = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
+    $query = "update `register` . `users` set
 
-    // echo $fullname;
-    // echo "<br>";
-    // echo $email;
-    // echo "<br>";
-
-    // $value1 = 150;
-    // $value2 = 50;
-
-    // echo $value1 + $value2;
-    // echo "<br>";
-    // echo $value1 - $value2;
-    // echo "<br>";
-    // echo $value1 * $value2;
-    // echo "<br>";
-    // echo $value1 / $value2;
-    // echo "<br>";
-    // echo $value1 % $value2;
-    // echo "<br>";
-
-
-    // $marks = 70;
-
-    // if($marks >= 70){
-    //     echo "Grade A";
-    // } else{
-    //     echo "Grade B";
-    // };
-
-
-    if (isset($_POST['submit'])) {
-
-        $fullname = $_POST['fullname'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $cpassword = $_POST['cpassword'];
-
-        $query = "insert into users
-    (fullname, email, password, cpassword)
-    values('$fullname', '$email', '$password', '$cpassword')
+    `fullname` = '$fullname',
+    `email` = '$email',
+    `password` = '$password'
+     where `users`. `id` = '$id'
     ";
 
-        if (mysqli_query($connection, $query)) {
-            echo "<script>
+    if (mysqli_query($connection, $query)) {
+        echo "<script>
     
-            alert('Form has been Submitted Successfully');
-            window.location.href = './adminlogin.php'
+            alert('Your data has been updated Successfully');
+            window.location.href = './dashboard.php'
     
             </script>";
-        } else {
-            echo "Error" . mysqli_error($connection);
-        }
+    } else {
+        echo "Error" . mysqli_error($connection);
     }
+}
 
+?>
 
-    ?>
-
+<body>
 
 
     <div class="container">
@@ -106,7 +73,7 @@ include("config.php");
 
                         <div class="mb-3">
                             <label class="form-label">Full Name</label>
-                            <input type="text" class="form-control" name="fullname" id="fullName" required>
+                            <input type="text" class="form-control" value=<?php echo $fullname ?> name="fullname" id="fullName" required>
                             <div class="invalid-feedback">
                                 Please enter your full name.
                             </div>
@@ -114,7 +81,7 @@ include("config.php");
 
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" id="email" required>
+                            <input type="email" class="form-control" value=<?php echo $email ?> name="email" id="email" required>
                             <div class="invalid-feedback">
                                 Please enter a valid email.
                             </div>
@@ -122,7 +89,7 @@ include("config.php");
 
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" required>
+                            <input type="password" class="form-control" value=<?php echo $password ?> name="password" id="password" required>
                             <div id="passwordStrength" class="password-strength mt-1"></div>
                             <div class="invalid-feedback">
                                 Password must be at least 6 characters.
